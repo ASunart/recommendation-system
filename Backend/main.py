@@ -16,25 +16,29 @@ data = pd.DataFrame(api_data)
 
 
 class Game:
-    def __init__(self, name, genres, platforms, tags, background_image):
+    def __init__(self, id, name, genres, parent_platforms, tags, background_image, metacritic):
+        self.id = id
         self.name = name
         self.genres = genres
-        self.platforms = platforms
+        self.parent_platforms = parent_platforms
         self.tags = tags
         self.background_image = background_image
+        self.metacritic = metacritic
 
 
-games = [Game(row['name'],
-                row['genres'],
-                 row['platforms'],
-                  row['tags'],
-                    row['background_image']) for index, 
-                      row in data.iterrows()]
+games = [Game(row['id'],  
+                row['name'],
+                  row['genres'],
+                    row['parent_platforms'],
+                      row['tags'],
+                        row['background_image'],
+                          row['metacritic']) for index, 
+                            row in data.iterrows()]
 
 # GET Endpoint =============================================================================
 @app.route("/", methods=["GET"])
 def index():
-  return jsonify({"message": "Hello World"})
+  return jsonify({"message": "Hello World"}), 200
 
 # Definición del endpoint POST
 @app.route("/recommend", methods=["POST"])
