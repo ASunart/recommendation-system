@@ -1,7 +1,17 @@
 // Eslint
 /* eslint-disable react/prop-types */
 
-export function Checkbox({ label, onChange, name }) {
+import { useState } from "react"
+
+export function Checkbox({ label, onChange, name, image }) {
+
+    const [checked, setChecked] = useState(false)
+
+    const handleCheck = (e) => {
+        setChecked(e.target.checked);
+        onChange(e)
+    }
+
     return (
         <>
             <input
@@ -9,17 +19,18 @@ export function Checkbox({ label, onChange, name }) {
                 name={name}
                 id={label}
                 value={label}
-                onChange={onChange}
+                onChange={handleCheck}
+                checked={checked}
                 className="hidden peer" />
             <label
                 htmlFor={label}
-                className="relative border-[2.5px] border-transparent p-1 rounded-lg cursor-pointer peer-checked:border-action-color transition-all">
+                className={`relative border-[2.5px] border-transparent p-1 rounded-lg cursor-pointer ${checked ? 'border-action-color' : ''} transition-all`}>
                 <p
                     className="absolute flex justify-center items-center text-white text-2xl font-semibold shadow-md h-full w-full">
                     {label}
                 </p>
                 <img
-                    src="../src/assets/images/checkbox/adventure.webp"
+                    src={image}
                     className="object-cover rounded-md brightness-[.60] relative -z-10" />
             </label>
         </>
