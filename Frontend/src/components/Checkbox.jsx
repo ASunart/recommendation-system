@@ -11,7 +11,6 @@ export function Checkbox({ label, onChange, name, image }) {
         setChecked(e.target.checked);
         onChange(e)
     }
-
     return (
         <>
             <input
@@ -24,14 +23,15 @@ export function Checkbox({ label, onChange, name, image }) {
                 className="hidden peer" />
             <label
                 htmlFor={label}
-                className={`relative border-[2.5px] border-transparent p-1 rounded-lg cursor-pointer ${checked ? 'border-action-color' : ''} transition-all`}>
+                className={`relative border-[2.5px] p-1 rounded-lg cursor-pointer ${checked ? 'border-action-color' : 'border-transparent'} transition-all`}>
                 <p
                     className="absolute flex justify-center items-center text-white text-2xl font-semibold shadow-md h-full w-full">
                     {label}
                 </p>
                 <img
                     src={image}
-                    className="object-cover rounded-md brightness-[.60] relative -z-10" />
+                    alt={`image-${label}`}
+                    className="w-full h-full object-cover rounded-md brightness-[.55] relative -z-10" />
             </label>
         </>
 

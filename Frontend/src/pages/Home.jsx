@@ -1,26 +1,27 @@
 import { useNavigate } from "react-router"
 import { Button, Header } from "../components"
-
-
-// import { useEffect, useState } from 'react'
-// import { useEffect, useState } from 'react';
-// import './App.css'
-
-// const URL = 'https://7420-186-112-79-28.ngrok-free.app/'
-// const API_KEY = "b7667a4106ea47d5b5052513e3955e6b"
+import { usePage } from "../hooks/usePage"
 
 export function HomePage() {
-
+    const { bgImage } = usePage()
     const navigate = useNavigate()
+
 
     return (
         <>
             <Header />
-            <section className="flex justify-center items-center h-lvh">
-                <Button
-                    label='What should I play today?'
-                    action={() => navigate('/genres')} />
-            </section>
+            <div
+                className="bg-top bg-no-repeat bg-cover"
+                style={{ backgroundImage: `url(${bgImage})` }}
+            >
+
+                <section className="flex justify-center items-center h-lvh">
+                    <Button
+                        label='What should I play today?'
+                        variant='primary'
+                        action={() => navigate('/genres')} />
+                </section>
+            </div>
         </>
 
     )

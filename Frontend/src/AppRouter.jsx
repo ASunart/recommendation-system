@@ -1,16 +1,16 @@
 // Context
-import { FormContextProvider } from "../context/FormContextProvider";
+import { AppContextProvider } from "../context/AppContextProvider";
 
 // React
 import { Routes, Route } from 'react-router-dom'
 
 // Pages
-import { GenresPage, HomePage, PlatformsPage, TagsPage } from './pages';
+import { GamesPage, GenresPage, HomePage, PlatformsPage, TagsPage } from './pages';
 
 export function AppRouter() {
     return (
         <main>
-            <FormContextProvider>
+            <AppContextProvider>
                 <Routes>
                     <Route
                         path='/'
@@ -28,8 +28,12 @@ export function AppRouter() {
                         path='/tags'
                         element={<TagsPage />}
                     />
+                    <Route
+                        path='/games'
+                        element={<GamesPage />}
+                    />
                 </Routes>
-            </FormContextProvider>
+            </AppContextProvider>
         </main>
     )
 }

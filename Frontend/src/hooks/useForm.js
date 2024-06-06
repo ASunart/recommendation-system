@@ -2,12 +2,12 @@
 import { useContext } from "react";
 
 // Context
-import { FormContext } from "../../context/formContext"
+import { AppContext } from "../../context/AppContext"
 
 
 
 export const useForm = () => {
-    const context = useContext(FormContext);
+    const context = useContext(AppContext);
 
     if (!context) {
         throw new Error('The component is not in the provider')
