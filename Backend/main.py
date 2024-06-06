@@ -16,23 +16,27 @@ data = pd.DataFrame(api_data)
 
 
 class Game:
-    def __init__(self, id, name, genres, parent_platforms, tags, background_image, metacritic):
+    def __init__(self, id, slug, name, genres, parent_platforms, tags, background_image, metacritic, released):
         self.id = id
+        self.slug = slug
         self.name = name
         self.genres = genres
         self.parent_platforms = parent_platforms
         self.tags = tags
         self.background_image = background_image
         self.metacritic = metacritic
+        self.released = released
 
 
 games = [Game(row['id'],  
+              row['slug'],
                 row['name'],
                   row['genres'],
                     row['parent_platforms'],
                       row['tags'],
                         row['background_image'],
-                          row['metacritic']) for index, 
+                          row['metacritic'],
+                            row['released']) for index, 
                             row in data.iterrows()]
 
 # GET Endpoint =============================================================================
