@@ -14,13 +14,15 @@ export function TagsPage() {
 
     const {
         handleForm,
-        postForm
+        postForm,
+        
     } = useForm()
 
-    const handleBtnAction = () => {
-        postForm
+    const handleBtnAction = (e) => {
+        postForm(e)
         navigate('/games')
     }
+
 
     return (
         <>
@@ -43,7 +45,7 @@ export function TagsPage() {
                         tags.map(({ id, name, img }) => (
                             <Checkbox
                                 key={id}
-                                name='genres'
+                                name='tags'
                                 label={name}
                                 image={img}
                                 onChange={handleForm}
@@ -60,7 +62,7 @@ export function TagsPage() {
                     <Button
                         label='Continue'
                         variant='secondary'
-                        action={handleBtnAction}
+                        action={(e) => handleBtnAction(e)}
                     />
                 </div>
             </section>

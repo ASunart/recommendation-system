@@ -1,7 +1,7 @@
 export const platforms = [
     {
         id: crypto.randomUUID(),
-        name: 'PlayStation',
+        name: "PlayStation",
         img: '../src/assets/images/checkbox/playstation.webp'
     },
     {

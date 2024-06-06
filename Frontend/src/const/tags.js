@@ -6,7 +6,7 @@ export const tags = [
     },
     {
         id: crypto.randomUUID(),
-        name: 'Multiplayer',
+        name: "Multiplayer",
         img: '../src/assets/images/checkbox/multiplayer.webp'
     },
     {

@@ -1,5 +1,5 @@
 // Eslint
-/* eslint-disable react/prop-types */
+/* eslint-disable react/prop-types */  
 
 import { useState } from "react"
 
@@ -31,7 +31,7 @@ export function Checkbox({ label, onChange, name, image }) {
                 <img
                     src={image}
                     alt={`image-${label}`}
-                    className="w-full h-full object-cover rounded-md brightness-[.55] relative -z-10" />
+                    className="w-full h-full object-cover rounded-md brightness-[.65] relative -z-10" />
             </label>
         </>
 

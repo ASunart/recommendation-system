@@ -5,7 +5,7 @@ import { AppContextProvider } from "../context/AppContextProvider";
 import { Routes, Route } from 'react-router-dom'
 
 // Pages
-import { GamesPage, GenresPage, HomePage, PlatformsPage, TagsPage } from './pages';
+import { GameDetailPage, GamesPage, GenresPage, HomePage, PlatformsPage, TagsPage } from './pages';
 
 export function AppRouter() {
     return (
@@ -31,6 +31,10 @@ export function AppRouter() {
                     <Route
                         path='/games'
                         element={<GamesPage />}
+                    />
+                    <Route
+                        path='/games/*'
+                        element={<GameDetailPage />}
                     />
                 </Routes>
             </AppContextProvider>

@@ -10,13 +10,15 @@ import { AppContext } from "./AppContext";
 // Background Image
 import bgImage from '../src/assets/images/other/pattern.png'
 
+const URL = 'https://d8ac-191-111-253-179.ngrok-free.app/'
+
 export function AppContextProvider({ children }) {
 
     const [formData, setFormData] = useState({})
     const [games, setGames] = useState([])
+    const [game, setGame] = useState({})
 
 
-    
 
     const handleForm = (e) => {
         const { name, value, checked } = e.target;
@@ -63,6 +65,20 @@ export function AppContextProvider({ children }) {
         });
     }
 
+    const getGame = (slug) => {
+        fetch(`https://api.rawg.io/api/games/${slug}?key=b7667a4106ea47d5b5052513e3955e6b`)
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Paila al traer el juego');
+                }
+                return res.json(); // Parsea la respuesta JSON
+            }).then(data => {
+                setGame(data); // Establece la respuesta en el estado setGames
+            }).catch(error => {
+                console.error('Error:', error);
+                //    Manejar errores aquí
+            });
+    }
 
 
     return (
@@ -71,7 +87,9 @@ export function AppContextProvider({ children }) {
             games,
             handleForm,
             postForm,
-            bgImage
+            bgImage,
+            getGame,
+            game
         }}>
             {children}
         </AppContext.Provider>

@@ -9,10 +9,14 @@ export function usePage() {
     }
 
     const {
-        bgImage
+        bgImage,
+        getGame,
+        game
     } = context
 
     return {
-        bgImage
+        bgImage,
+        getGame,
+        game
     }
 }
