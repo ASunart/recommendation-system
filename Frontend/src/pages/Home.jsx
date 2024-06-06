@@ -15,13 +15,13 @@ export function HomePage() {
                 style={{ backgroundImage: `url(${bgImage})` }}
             >
 
-                <section className="flex flex-col-reverse lg:flex-row gap-[100px] items-center pb-10">
+                <section className="flex flex-col-reverse xl:flex-row gap-[100px] items-center pb-10">
                     <img
-                        className="w-[90%] lg:w-[55%]"
+                        className="w-[90%]  xl:w-[55%]"
                         src="../src/assets/images/other/hero.webp" alt="hero-img" />
                     <div className="flex flex-col gap-8 justify-center items-center m-2">
                         <img
-                            className="w-[60%]"
+                            className="w-[50%]"
                             src="../src/assets/images/other/logo.webp" alt="logo-img" />
                         <p className="text-white text-lg">Why wait? Dive into the world of <br /> PlaySync and <b>let the games begin!</b></p>
                         <Button
