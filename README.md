@@ -14,6 +14,8 @@ PlaySync es un innovador sistema de recomendación de videojuegos diseñado para
 - Para correr el proyecto se puede correr el servidor de la carpeta "Frontend" con 
 "npm run dev". Y para el backend se pueden seguir las instrucciones del readme de la carpeta.
 
+-[API utilizada](https://rawg.io/apidocs)
+
 
 ## Equipo
 
