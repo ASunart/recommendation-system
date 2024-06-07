@@ -17,14 +17,16 @@ export const useForm = () => {
         formData,
         games,
         handleForm,
-        postForm
+        postForm,
+        setFormData
     } = context
 
     return {
         formData,
         games,
         handleForm,
-        postForm
+        postForm,
+        setFormData
     }
 
 }

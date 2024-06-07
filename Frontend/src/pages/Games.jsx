@@ -12,7 +12,8 @@ export function GamesPage() {
     } = usePage()
 
     const {
-        games
+        games,
+        setFormData
     } = useForm()
 
 
@@ -82,7 +83,11 @@ export function GamesPage() {
                     <Button
                         label='Done'
                         variant='secondary'
-                        action={() => navigate('/')}
+                        action={() => {
+                            navigate('/')
+                            setFormData({
+                            })
+                        }}
                     />
                 </div>
             </section>

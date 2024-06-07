@@ -10,7 +10,7 @@ import { AppContext } from "./AppContext";
 // Background Image
 import bgImage from '../src/assets/images/other/pattern.png'
 
-const URL = 'https://2745-186-168-97-49.ngrok-free.app/'
+const URL = 'http://127.0.0.1:5001/'
 
 export function AppContextProvider({ children }) {
 
@@ -89,7 +89,8 @@ export function AppContextProvider({ children }) {
             postForm,
             bgImage,
             getGame,
-            game
+            game,
+            setFormData
         }}>
             {children}
         </AppContext.Provider>

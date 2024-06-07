@@ -20,6 +20,9 @@ export function GameCard({
     return (
         <Link
             to={`/games/${slug}`}
+            onClick={()=>{
+                window.scrollTo(0,0)
+            }}
             className='flex flex-col justify-between
             h-full w-full bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-opacity-20 border-gray-100'
         >

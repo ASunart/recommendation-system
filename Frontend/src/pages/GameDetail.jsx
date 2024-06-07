@@ -24,7 +24,13 @@ export function GameDetailPage() {
 
     }, [slug])
 
-    console.log(game);
+    if (Object.keys(game).length === 0) {
+        return (
+            <div className="h-screen flex justify-center items-center"> 
+                <Loader />
+            </div>
+        )
+    }
     // console.log(game.platforms[0].platform.name);
 
     return (
@@ -35,9 +41,9 @@ export function GameDetailPage() {
                 <div
                     className="relative flex flex-col justify-end h-[80vh] bg-top bg-no-repeat bg-cover bg-gradient-to-b from-slate-400 from-0% via-slate-900 via-80% to-primary-color"
                 >
-                    <div className="flex justify-between items-center px-10 py-20">
+                    <div className="flex justify-between items-center px-10 py-10">
                         <img
-                            className="absolute top-0 left-0 w-full h-full object-cover mix-blend-overlay"
+                            className="absolute top-0 left-0 w-full h-full object-top object-cover mix-blend-overlay"
                             src={game.background_image}
                             alt={game.slug} />
                         <h2
@@ -64,42 +70,41 @@ export function GameDetailPage() {
                     </div>
                 </div>
 
-                <div className="flex flex-wrap items-center gap-10 m-10">
-                    {/* {
-                        game.genres.map((genre) => (
-                            <p
-                                key={genre.id}
-                                className=" text-white px-10 py-2 cursor-default hover:bg-action-color hover:text-primary-color transition-all bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-opacity-20 border-gray-100"
-                            >
-                                {genre.name}
-                            </p>
-                        ))
-                    } */}
+                <div className="flex flex-wrap justify-between items-center gap-10 m-10">
+                    <div className="flex gap-8">
+                        {
+                            game.genres.map((genre) => (
+                                <p
+                                    key={genre.id}
+                                    className=" text-white px-10 py-2 cursor-default hover:bg-action-color hover:text-primary-color transition-all bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-opacity-20 border-gray-100"
+                                >
+                                    {genre.name}
+                                </p>
+                            ))
+                        }
+                    </div>
 
+                    <div className="">
+                        <p className="text-white">{game.released}</p>
+                    </div>
                 </div>
 
-                <div className="mx-10 mt-12 xl:max-w-3xl">
+                <div className="mx-10 xl:max-w-full">
                     <h3 className="font-semibold text-2xl text-action-color">About</h3>
                     <p className="text-white py-3">{game.description_raw}</p>
                 </div>
 
-                <div className="">
-                    <h3>Platforms</h3>
-                    <div>
-                        {/* {
-                            game.platforms.map((platforms) => (
-                                <p
-                                    key={platforms.platform.id}
-                                >
-                                    {platforms.platform.name}
-                                </p>
-                            ))
-                        } */}
-                    </div>
-                </div>
-                <div className="">
-                    <h3>Release Date</h3>
-                    <p>{game.released}</p>
+                <div className="flex flex-row items-center gap-10 mx-10 my-6">
+                    {
+                        game.platforms.map((platforms) => (
+                            <p
+                                key={platforms.platform.id}
+                                className="px-8 py-2 text-white bg-blue-600 rounded-lg"
+                            >
+                                {platforms.platform.name}
+                            </p>
+                        ))
+                    }
                 </div>
 
             </article>
